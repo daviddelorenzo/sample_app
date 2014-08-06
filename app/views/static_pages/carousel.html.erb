@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<title> Carousel </title>
+<h1> Carousel </h1>
+<html>
+<!-- Upper Container
+============================ -->
+<div class="upperContainer">
+    
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= link_to image_tag("guildsource.jpg", alt: "Rails"), 'www.google.com' %>  
+      <div class="carousel-caption">
+          <h1>first </h1>
+      </div>
+    </div>
+    <div class="item">
+       <%= link_to image_tag("guildsource.jpg", alt: "Rails"), 'www.google.com' %>
+      <div class="carousel-caption">
+          <h1>second </h1>
+      </div>
+    </div>
+    <div class="item">
+       <%= link_to image_tag("guildsource.jpg", alt: "Rails"), 'www.google.com' %>
+      <div class="carousel-caption">
+          <h1>third</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+ </div>
+
+
+
+
+</div><!-- /.upperContainer-->
+
+<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+
+
+<!-- Lower Containter
+========================= -->
+<div class="lowerContainer">
+    <p> I am lower </p>
+</div><!-- /.lowerContainer-->
+
+</html>
