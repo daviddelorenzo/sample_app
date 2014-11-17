@@ -2,6 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+    font-family: “nexa_rust_sansblack”;
+    src: url(nexarustsans-black-webfont.eot);
+    src: url(nexarustsans-black-webfont.eot?#iefix) format(embedded-opentype),
+         url(nexarustsans-black-webfont.woff2) format(woff2),
+         url(nexarustsans-black-webfont.woff) format(woff),
+         url(nexarustsans-black-webfont.ttf) format(truetype),
+         url(nexarustsans-black-webfont.svg#nexa_rust_sansblack) format(svg);
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.hero-unit h1 {
+	font-family: nexa_rust_sansblack;
+	font-size: 90;
+}
+.hero-unit p {
+	font-family:  ‘nexa_rust_sansblack;
+}
+
 .upperContainer {
 	width: 100%;
 	height: 1200px;
@@ -10,9 +32,10 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-body {
+body .container {
   padding-bottom: 40px;
   color: #5a5a5a;
+  //background-image: asset-data-url(“cplus.jpg”);
 }
 
 
@@ -52,37 +75,70 @@ body {
   margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
-.carousel-caption {
+ .carousel-caption {
   z-index: 10;
-  opacity:.5;
+  opacity:1;
+  left: 30%;
+  right: 30%;
+  height: 70px;
+  bottom: 10px;
+}
+
+.carousel .carousel-caption{
+	margin-bottom: 5px;
+	text-align:center;
+ 	 padding: 0px;
 }
 
 /* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 500px;
- background-color: #777;
-  background-image: url(“guildsource.jpg”);
+.carousel .carousel-inner{
+  width: 100%;
+  height: 100%;
+  
 }
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
+
+.carousel-inner .item{
+  background-color:beige;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-inner .item img{
+  width:100%;
+  height:100%;
+}
+
+.carousel {
+	width: 700px;
+	margin:auto;
+	height: 394px;
 }
 
 .carousel-control{
 	margin-top:auto;
 	margin-bottom:auto;
 }
-
-.carousel-indicators{
-	bottom:5px;
+.carousel-indicators li{
+		border: 1px solid grey;
+		background-color: black;
+		z-index: 20;
 }
 
+.carousel-indicators{
+	height:50px;
+}
 
-.carousel-indicators active{
-	border: 1px solid grey;
+.carousel-indicators .active {
+		float:center;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin: 1px;
+		text-indent: -999px;
+		border: 1px solid grey;
+		border-radius: 10px;
+		cursor: pointer;
+		background-color: solid black;
 }
 
 
@@ -93,10 +149,12 @@ body {
 @media (min-width: 768px) {
 
   /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 20px;
-    font-size: 21px;
+  .carousel-caption h1 {
+    margin: auto;
+    font-size: 45px;
     line-height: 1.4;
+    text-align:center;
+     padding: 0px;
   }
   .carousel-indicators li {
 	float:center;
@@ -108,9 +166,19 @@ body {
 	border: 1px solid grey;
 	border-radius: 10px;
 	cursor: pointer;
-	background-color: #000 \9;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: black;
   }
+  .carousel-caption {
+  	left: 30%;
+  	right: 30%;
+	 padding: 0px;
+	bottom: 10px;
+   }
+
 }
+
+
+
+
 
 

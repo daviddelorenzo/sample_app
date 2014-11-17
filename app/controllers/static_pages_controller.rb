@@ -10,4 +10,11 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def carousel
+  end
+
+  def projects
+  end
+
 end

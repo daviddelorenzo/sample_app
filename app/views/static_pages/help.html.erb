@@ -13,4 +13,66 @@
       <a href="http://railstutorial.org/book">Rails Tutorial book</a>.
     </p>
   </body>
+  <%= field_set_tag 'Other Device' do %>
+
+    <%= text_field_tag :other_mdn, @other_mdn, :class => 'mdn-box', :placeholder => 'Enter Other MDN' %>
+    <br><%= check_box_tag :other_fi_l, 1, @other_fi_l => "checked" %> ECID Licensed
+    <br><%= check_box_tag :other_fi_d, 1, @other_fi_d => "checked" %> In-Network
+    <br><%= check_box_tag :other_fi_c, 1, @other_fi_c => "checked" %> ECID Capable
+    <br><%= check_box_tag :other_fi_x, 1, @other_fi_x %> Company Connect Enabled
+    <br><%= check_box_tag :other_fi_n, 1, @other_fi_n %> Network Display Text
+    <br><%= check_box_tag :other_fi_T, 1, @other_fi_T => "checked"%> Trace in Call Processing
+
+  <% end %>
+<%= javascript_tag do %>
+
+  $(document).ready( function() {
+    $("#other_fi_d").tooltip( {
+      placement: 'left',
+      title: function() {
+        return "Select this Feature Indicator if the Other Device is in-network with the carrier.";
+      }
+    } );
+
+    $("#other_fi_c").tooltip( {
+      placement: 'left',
+      title: function() {
+        return "Select this Feature Indicator if the Other Device has the ECID client installed and running.";
+      }
+    } );
+
+    $("#other_fi_l").tooltip( {
+      placement: 'left',
+      
+      title: function() {
+        return "Select this Feature Indicator if the Other Device is an actively subscribed user of ECID.";
+      }
+    } );
+
+    $("#other_fi_n").tooltip( {
+      placement: 'left',
+      title: function() {
+        return "Select this Feature Indicator if the Other Device is an actively subscribed user of UCName.";
+      }
+    } );
+
+
+    $("#other_fi_x").tooltip( {
+      placement: 'left',
+      title: function() {
+        return "Select this Feature Indicator if the Other Device is a CompanyConnect managed device.";
+      }
+    } );
+
+    $("#other_fi_T").tooltip( {
+      placement: 'left',
+      title: function() {
+        return "Select this Feature Indicator if you would like the Call Processing system to log trace messages for this event from the perspective of the Other Device.";
+      }
+    } );
+
+
+  } );
+
+<% end %>
 </html>
