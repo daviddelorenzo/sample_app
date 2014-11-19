@@ -1,15 +1,17 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 @font-face {
-    font-family: “nexa_rust_sansblack”;
-    src: url(nexarustsans-black-webfont.eot);
-    src: url(nexarustsans-black-webfont.eot?#iefix) format(embedded-opentype),
-         url(nexarustsans-black-webfont.woff2) format(woff2),
-         url(nexarustsans-black-webfont.woff) format(woff),
-         url(nexarustsans-black-webfont.ttf) format(truetype),
-         url(nexarustsans-black-webfont.svg#nexa_rust_sansblack) format(svg);
+    font-family: 'nexa_rust_sansblack';
+    src: url('nexarustsans-black-webfont.eot');
+    src: url('nexarustsans-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('nexarustsans-black-webfont.woff2') format('woff2'),
+         url('nexarustsans-black-webfont.woff') format('woff'),
+         url('nexarustsans-black-webfont.ttf') format('truetype'),
+         url('nexarustsans-black-webfont.svg#nexa_rust_sansblack') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -17,11 +19,11 @@
 
 
 .hero-unit h1 {
-	font-family: nexa_rust_sansblack;
+	font-family: ‘nexa_rust_sansblack’;
 	font-size: 90;
 }
 .hero-unit p {
-	font-family:  ‘nexa_rust_sansblack;
+	font-family:  nexa_rust_sansblack;
 }
 
 .upperContainer {
@@ -124,8 +126,13 @@ body .container {
 		z-index: 20;
 }
 
+.nav > li{
+	float: left;
+}
+
 .carousel-indicators{
 	height:50px;
+	top: 20px;
 }
 
 .carousel-indicators .active {
