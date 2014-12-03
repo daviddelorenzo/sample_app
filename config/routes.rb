@@ -9,8 +9,13 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/projects', to: 'static_pages#projects', via: 'get'
+  match '/programming_problems', to: 'static_pages#programming_problems', via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
-  
+  match '/candy', to: 'static_pages#candy', via: 'get'
+  match '/max_lines', to: 'static_pages#max_lines', via: 'get'
+  match '/nonrepeating', to: 'static_pages#nonrepeating', via: 'get'
+  match '/treedepth', to: 'static_pages#treedepth', via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

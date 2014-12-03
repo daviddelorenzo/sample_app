@@ -5,6 +5,32 @@
 @import "bootstrap";
 
 @font-face {
+    font-family: 'nexa_rust_slabblack_shadow_01';
+    src: url('nexarustslab-blackshadow01-webfont.eot');
+    src: url('nexarustslab-blackshadow01-webfont.eot?#iefix') format('embedded-opentype'),
+         url('nexarustslab-blackshadow01-webfont.woff2') format('woff2'),
+         url('nexarustslab-blackshadow01-webfont.woff') format('woff'),
+         url('nexarustslab-blackshadow01-webfont.ttf') format('truetype'),
+         url('nexarustslab-blackshadow01-webfont.svg#nexa_rust_slabblack_shadow_01') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nexa_rust_script_l0regular';
+    src: url('nexarustscriptl-0-webfont.eot');
+    src: url('nexarustscriptl-0-webfont.eot?#iefix') format('embedded-opentype'),
+         url('nexarustscriptl-0-webfont.woff2') format('woff2'),
+         url('nexarustscriptl-0-webfont.woff') format('woff'),
+         url('nexarustscriptl-0-webfont.ttf') format('truetype'),
+         url('nexarustscriptl-0-webfont.svg#nexa_rust_script_l0regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
     font-family: 'nexa_rust_sansblack';
     src: url('nexarustsans-black-webfont.eot');
     src: url('nexarustsans-black-webfont.eot?#iefix') format('embedded-opentype'),
@@ -18,12 +44,14 @@
 }
 
 
+
+
 .hero-unit h1 {
-	font-family: ‘nexa_rust_sansblack’;
+	font-family: ‘nexa_rust_slabblack_shadow_01’;
 	font-size: 90;
 }
-.hero-unit p {
-	font-family:  nexa_rust_sansblack;
+.hero-unit h2 {
+	font-family:  ‘nexa_rust_sansblack’;
 }
 
 .upperContainer {
@@ -38,6 +66,10 @@ body .container {
   padding-bottom: 40px;
   color: #5a5a5a;
   //background-image: asset-data-url(“cplus.jpg”);
+}
+
+body{
+	padding-top:32px;
 }
 
 
@@ -129,6 +161,12 @@ body .container {
 .nav > li{
 	float: left;
 }
+
+.nav > li > a{
+	color: white;
+	font-family: nexa_rust_sansblack ;
+}
+
 
 .carousel-indicators{
 	height:50px;

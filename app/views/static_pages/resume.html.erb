@@ -1,13 +1,23 @@
-<% provide(:title, 'Help') %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
-  </head>
-  <body>
-    <h1> Resume </h1>
-    <p>
-      Please Click Here to download a PDF copy of my resume. 
-    </p>
-  </body>
-</html>
+<HTML>
+
+<div style="background-image:url(darkBack.jpg); background-size:100%; height: 1500px;">
+
+<h1 style="font-family: nexa_rust_slabblack_shadow_01;
+	font-size: 90px; color:beige"> Resume </h1>
+	
+<div style="width: 90%; height: 900px; margin-right:5%; margin-left:5%">
+<p style="font-family: nexa_rust_sansblack;
+	font-size: 20px; color:beige">
+An image of my resume can be seen below. This should be up to date with the version sent in my application. 
+If you wish to download a pdf version of my resume, please click the Download PDF button.
+</p>
+
+<a href="ResumeDavidDelorenzo.pdf" download>
+<button type="button" class="btn btn-success" style="margin-bottom: 20px; margin-left:auto; margin-right:auto; display:block;"> Download Resume PDF </button>
+</a>
+
+<img src="file-page1.png" style="height: 1000px; display: block; margin-left:auto; margin-right:auto;">
+</div>
+
+</div>
+</HTML>

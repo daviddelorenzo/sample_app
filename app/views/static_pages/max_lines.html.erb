@@ -1,0 +1,139 @@
+<div style="background-image:url(darkBack.jpg); background-size:100%; height: 3100px;">
+
+<h1 style="font-family: nexa_rust_slabblack_shadow_01;
+	font-size: 90px; color:beige"> Programming Problems</h1>
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+
+<div style="margin-left:20%; margin-right:20%;">
+<pre class="prettyprint">
+/**
+ * Definition for a point.
+ * struct Point {
+ *     int x;
+ *     int y;
+ *     Point() : x(0), y(0) {}
+ *     Point(int a, int b) : x(a), y(b) {}
+ * };
+ */
+ #include <string>
+ #include <vector>
+ #include <unordered_map>
+ using namespace std;
+ 
+ 
+class Solution {
+public:
+    string dups;//string that holds the value for duplicates, its a placeholder
+    string lineEquation;
+    string maxCountEq;
+    float slope;
+    float y_intercept;
+    unordered_map<string, int> hashMap;
+    unordered_map<string, int> numDupsHashMap;
+    int maxCount=0;
+    int lineEqTracker=0;
+    int deleteIndex =0;//keeps track of where in the array of points that the duplicate point should be deleted from
+    int orgSize = 0;//grab size of points before any erases
+    string currentI;
+    string currentJ;
+    int lineEqCount;
+    int currentMaxCount =0;
+    
+    int maxPoints(vector<Point> &points) {
+        orgSize = points.size();//grab original size of points
+        if(orgSize == 0){//Check if there are any points
+            return 0;
+        }
+        else if(orgSize==1){ //Check if only 1 point
+            return 1;
+        }
+        else if(orgSize==2){//2 points, will always have 2
+            return 2;
+        }
+        for(int i = 0; i<orgSize; i++){//Scan all points points, and erase duplicates, make a seperate hash that holds the numDups
+            dups = "(" +to_string(points[deleteIndex].x) + ", " + to_string(points[deleteIndex].y) + ")"; //make a string for the point, (x, y)
+            if(numDupsHashMap[dups] >= 1){//There's already a point like this, DUP!!
+                numDupsHashMap[dups]++; //add 1 to dup
+                points.erase (points.begin() + deleteIndex);//remove dup from points
+            }
+            else{//No Dup
+                deleteIndex++;
+                numDupsHashMap[dups] = 1; //first point like this
+            }
+        }
+        if(points.size() == 1){//Check if new size after removing dups is 1
+            return (numDupsHashMap["(" +to_string(points[0].x) + ", " + to_string(points[0].y) + ")"]);//return points
+        }
+        for(int j = 0;  j < points.size() - 1; j++){//more then 2 points are given and points contains no Dups, check all combos.
+            for(int i = j+1; i < points.size(); i++){
+                currentJ="(" +to_string(points[j].x) + ", " + to_string(points[j].y) + ")";
+                currentI="(" +to_string(points[i].x) + ", " + to_string(points[i].y) + ")";
+                lineEqCount = hashMap[lineEquation];
+                
+                if((points[j].x - points[i].x) == 0){
+                    slope = 9999999;
+                    y_intercept = points[j].x;
+                }
+                else{
+                    slope = ((float)(points[j].y - points[i].y)/(float)(points[j].x - points[i].x));
+                    slope = (slope < 0.0005 && slope > -0.0005)? 0: slope;
+                    if(points[j].x == 0){
+                        y_intercept = points[j].y;
+                    }
+                    else if(slope == 0){
+                        y_intercept = points[j].y;
+                    }
+                    else{
+                        y_intercept = (float)points[j].y-(slope*(float)points[j].x);
+                    }
+                }
+                lineEquation = "y = " + to_string(slope) +"x + " + to_string(y_intercept);
+                lineEqCount = hashMap[lineEquation]; //debug statement
+                
+                if(hashMap[lineEquation] > 1){    //
+                    hashMap[lineEquation] = hashMap[lineEquation] + 1;//add to the line eq count
+                    if(numDupsHashMap[currentI] > 1){   //check if dups
+                        hashMap[lineEquation] += (numDupsHashMap[currentI] - 1);//add dups to the line eq count
+                    }
+                    lineEqCount = hashMap[lineEquation]; //debug statement
+                    if(hashMap[lineEquation] > currentMaxCount && ((lineEquation != maxCountEq)||(lineEqTracker == j))) { //if line count is greater than max count AND line Eq is not the max count Eq (means already counted) OR we are on the correct Eq to count
+                        currentMaxCount = hashMap[lineEquation];
+                        lineEqTracker = j;//ensure eq tracker is current eq
+                        maxCountEq = lineEquation; //max Count eq is current eq
+                    }
+                }
+                else{//if these are the first two point on the line
+                    hashMap[lineEquation] = 2;  //first 2 points on the line
+                    if(currentMaxCount < 2){ //Check if the max count is less than 2 points
+                        currentMaxCount = 2;   //Max count is 2
+                        lineEqTracker = j; //this line eq is max, track it in loop
+                        maxCountEq = lineEquation; //the max count eq is this eq
+                        if(numDupsHashMap[currentI] > 1){ //see if I dups
+                            currentMaxCount += (numDupsHashMap[currentI] - 1); //add I dups to max count
+                        }
+                        if(numDupsHashMap[currentJ] > 1){//see if dups on J
+                            currentMaxCount += (numDupsHashMap[currentJ]-1);   //increment the max count to include dups
+                        }
+                    }
+                    if(numDupsHashMap[currentJ] > 1){//see if dups on J
+                        hashMap[lineEquation] += (numDupsHashMap[currentJ] - 1);//increment the line eq count to include dups
+                    }
+                    if(numDupsHashMap[currentI] > 1){ //see if I dups
+                        hashMap[lineEquation] += (numDupsHashMap[currentI] - 1);//add I dups to line eq. count
+                    }
+                }
+            }//end I
+            hashMap.clear();
+            if(currentMaxCount > maxCount){
+                maxCount = currentMaxCount;
+            }
+        }//end J
+        return maxCount;
+    }
+};
+
+</pre>
+</div>
+
+</div>

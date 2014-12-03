@@ -1,0 +1,29 @@
+<div style="background-image:url(darkBack.jpg); background-size:100%; height: 1000px;">
+
+<h1 style="font-family: nexa_rust_slabblack_shadow_01;
+	font-size: 90px; color:beige"> Programming Problems</h1>
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+
+<div style="margin-left:20%; margin-right:20%;">
+<pre class="prettyprint">
+class Solution:
+    # @param A, a list of integer
+    # @return an integer
+    def singleNumber(self, A):
+        self.ID = {}
+        if len(A) == 1:
+           return A[0]
+        for i in range(len(A)):
+            if (str(A[i]) in self.ID):
+                self.ID[str(A[i])] = 2
+            else:
+                self.ID[str(A[i])] = 1
+        for key in self.ID:
+            if self.ID[key] == 1:
+                return int(key)
+
+</pre>
+</div>
+
+</div>
